@@ -1,0 +1,75 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #4c8bb3;
+}
+.signUp{
+    margin: auto;
+    height: 510px;
+    background-color: #ccdee9;
+    margin-top: 20px;
+    width: 360px;
+    border-radius: 3px;
+}
+h1{
+    padding-top: 15px;
+    text-align: center;
+}
+p{
+    padding-top: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+form input{
+    padding: 8px;
+    width: 90%;
+    outline: none;
+    border: none;
+    border: 1px solid #1d3544;
+    border-radius: 7px;
+}
+form label{
+    display: flex;
+    font-size: 20px;
+    margin-top: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+form{
+    width: 300px;
+    margin-left: 20px;
+    margin-bottom: -50px;
+}
+.buttonSU{
+    border: none;
+    margin-top: 15px;
+    color: white;
+    font-size: 20px;
+    width: 140px;
+    text-align: center;
+    height: 35px;
+}
+.already{
+    text-align: center;
+    font-size: 15px;
+    color: white;
+
+
+}
+.already a{
+    color: aqua;
+}
+.login{
+    margin: auto;
+    height: 280px;
+    background-color: #ccdee9;
+    margin-top: auto;
+    width:410px;
+    border-radius: 3px;
+}
+.dont a{
+    color: aqua;
+}
+.dont{
+    text-align: center;
+    font-size: 15px;
+    color: white;
+}

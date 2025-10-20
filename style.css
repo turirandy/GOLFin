@@ -1,0 +1,56 @@
+.nav{
+    background-color: thistle;
+
+}
+#nav{
+    display: flex;
+}
+li a{
+    text-decoration: none;
+    color: none;
+}
+body{
+    font-family: cursive sans-serif;
+    text-align: center;
+    padding:  20px;
+    margin: 0;
+    background: aqua;
+    color: black;
+}
+h1{
+    font-size: 25px;
+    color: aquamarine;
+    font-family: Arial, Helvetica, sans-serif;
+}
+header{
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+nav ul{
+    list-style: none;
+    background-color: blueviolet;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+}
+nav ul li{
+    margin: 15px;
+
+}
+nav ul li a{
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+
+}
+ul{
+    padding: 0%;
+    list-style: none;
+}
+li{
+    background-color: brown;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 10px;
+}
