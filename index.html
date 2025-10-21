@@ -1,72 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GOLFin</title>
+    <title>GOLFing</title>
     <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  </head>
+  <body>
     <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#course">Course</a></li>
-            <li><a href="#distance">My distances</a></li>
-            <li><a href="#scores">My scores</a></li>
-        </ul>
-    </nav>
-    <header>
-        <div id="header"></div>
-        <h1>Put it in GOLFin</h1>
-    </header>   
-    
-    <section id="course">
-        <h1>What course are you playing</h1>
-        <select name="" id="">
-            <option value=""></option>
-        <option value="windsor">Windsor Golf and Country Club Hotel</option>
-        <option value="royal">Royal Golf Club</option>
-        <option value="muthaiga">Muthaiga Golf Club</option>
-        <option value="mombasa">Mombasa Golf Club</option>
-        <option value="great">Great Rift Valley Golf Resort</option>
-        <option value="nakuru">Nakuru Golf Club</option>
-        <option value="sigona">Sigona</option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#course">Course</a></li>
+        <li><a href="#scores">My scores</a></li>
+        <li><a href="#distance">My distances</a></li>
+        <li><a href="login.html">Login to your account</a></li>
+        <li><a href="signup.html">Sign up</a></li>
+    </ul>
+  </nav>
+  
+  <header>
+    <div id="header"></div>
+    <h1>Put it in GOLFin</h1>
+  </header>
+  
+  <section id="course">
+    <h1>What course are you playing</h1>
+    <select id="courseSelect">
+      <option value="">-Select Course-</option>
+      <option value="windsor">Windsor Golf and Country Club Hotel</option>
+      <option value="royal">Royal Golf Club</option>
+      <option value="muthaiga">Muthaiga Golf Club</option>
+      <option value="mombasa">Mombasa Golf Club</option>
+      <option value="great">Great Rift Valley Golf Resort</option>
+      <option value="nakuru">Nakuru Golf Club</option>
+      <option value="sigona">Sigona</option>
+      <option value="cypress">Cypress Value Point</option>
     </select>
 
-    </section>
-    <section id="distance">
-        <h2>My distances</h2>
-    </section>
+    <label>Handicap Index</label>
+    <input type="number" placeholder="Handicap Index" required>
+    
+    <div class="handy">
+    <button type="submit">Change to Playing Handicap</button>
+    </div>
+  
+  </section>
+
+  <section id="scores">
+    <h2>Enter Targets and Your Scores</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Hole</th>
+          <th>Stroke Index</th>
+          <th>Target</th>
+          <th>Your Score</th>
+        </tr>
+      </thead>
+      <tbody >
+        <script>
+        for (let i = 1; i <= 18; i++){
+          document.write(`
+              <tr>
+                <td>Hole ${i}</td>
+                <td>Par${i}</td>
+                <td><input type="number" min="1" max="10" class="target" /></td>
+                <td><input type="number" min="1" max="10" class="score" /></td>
+              </tr>
+            `);
+          }
+        </script>
+      </tbody>
+    </table>
+    <div>
+    <button id="calculateBtn" type="submit">Calculate Performance</button>
+    <div id="targetResult" style="margin-top:10px;"></div>
+    <div id="scoreResult" style="margin-top:5px;"></div>
+    <div id="percentageResult" style="margin-top:10px; font-weight: bold;"></div>
+
+    <script>
+          const calculateBtn = document.getElementById("calculateBtn")
+
+    document.getElementById('calculateBtn').addEventListener('click', function(){
+        const targets = document.querySelectorAll(".target");
+        const scores = document.querySelectorAll(".score");
+
+        let totalTarget = 0;
+        let totalScore = 0;
+
+        for(let i = 0; i < 18 ; i++){
+            const targetVal = parseInt(targets[i].value);
+            const scoreVal  = parseInt(scores[i].value);
+
+            if(isNaN(targetVal) || isNaN(scoreVal)){
+              allFilled=false;
+              break;
+            }
+
+            totalTarget +=targetVal;
+            totalScore +=scoreVal;
+
+            if(!isNaN(targetVal)) totalTarget += targetVal;
+            if (!isNaN(scoreVal)) totalScore += scoreVal;
+            
+        }
+        const result = document.getElementById("percentageResult");
+
+        if(totalTarget=== 0 || totalScore===0){
+            result.textContent = "Please fill in all target and score values.";
+            return;
+        }
+
+        const percentage = ((totalTarget / totalScore) * 100).toFixed(1);
+
+        result.innerHTML=`
+        Total Targret: <strong>${totalTarget}</strong><br>
+        Total Score: <strong>${totalScore}</strong><br>
+        You achieved <strong> ${percentage}% <strong> of your target score.;
+        `;
+        result.style.color ="green";
+    });
+    </script>
+    </div>
+    <div id="percentageResult"></div>
+  </section>
+
+  <section id="distance">
+    <h2>My distances</h2>
+    <form id="distanceForm">
+      <label for="clubSelect">Club</label>
+      <select id="clubSelect" required>
+        <option value="">Select Club</option>
+        <option value="driver">Driver</option>
+        <option value="3 wood">3 Wood</option>
+        <option value="5 wood">5 Wood</option>
+        <option value="hydrid">Hydrid</option>
+        <option value="3 iron">3 Iron</option>
+        <option value="4 iron">4 Iron</option>
+        <option value="5 iron">5 Iron</option>
+        <option value="6 iron">6 Iron</option>
+        <option value="7 iron">7 Iron</option>
+        <option value="8 iron">8 Iron</option>
+        <option value="9 iron">9 Iron</option>
+        <option value="pitching wedge">Pitching Wedge</option>
+        <option value="sand wedge">Sand Wedge</option>
+        <option value="lob wedge">Lob Wedge</option>
+      </select>
+      <label for="distanceInput">Average Distance(yards)</label>
+      <input type="number" id="distanceInput" min="1" max="800" required>
+
+      <button type="submit">Add/Update Distance</button>
+    </form>
+    <table id="distanceTable">
+      <thead>
+        <tr>
+          <th>Club</th>
+          <th>Distance (yards)</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+    </table>
+</section>
+  <script src="main.js"></script>
 </body>
-  <p>Home <a href="signup.html">Home</a> </p>
 </html>

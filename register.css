@@ -1,14 +1,16 @@
 body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: #4c8bb3;
+    background-color: lavender;
+    text-align: center;
 }
 .signUp{
     margin: auto;
     height: 510px;
-    background-color: #ccdee9;
+    background-color: #F5F7FA;
     margin-top: 20px;
     width: 360px;
     border-radius: 3px;
+    text-align: center;
 }
 h1{
     padding-top: 15px;
@@ -26,17 +28,20 @@ form input{
     border: none;
     border: 1px solid #1d3544;
     border-radius: 7px;
+    text-align: center;
 }
 form label{
     display: flex;
     font-size: 20px;
     margin-top: 20px;
+    text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 form{
     width: 300px;
     margin-left: 20px;
-    margin-bottom: -50px;
+    margin-bottom: -50px ;
+    text-align: center;
 }
 .buttonSU{
     border: none;
@@ -51,25 +56,45 @@ form{
     text-align: center;
     font-size: 15px;
     color: white;
+    background-color: #ca82ff;
 
 
 }
 .already a{
-    color: aqua;
+    color: black;
+    text-align: center;
 }
 .login{
-    margin: auto;
     height: 280px;
-    background-color: #ccdee9;
-    margin-top: auto;
     width:410px;
+    margin: auto;
+    background-color: #F5F7FA;
+    margin-top: 20px;
     border-radius: 3px;
+    text-align: center;
 }
 .dont a{
-    color: aqua;
+    color: black;
+    text-align: center;
+    justify-content: center;
 }
 .dont{
     text-align: center;
     font-size: 15px;
     color: white;
+    background-color: #ca82ff;
+    width: 400px;
+    height: 25px;
+    justify-content: center;
+    margin-top: 20px;
+    border-radius: 3px;
+}    
+p{
+    text-align: center;
+    font-size: 15px;
+    color: white;
+    background-color: #ca82ff;
+    width: 400px;
+    text-align: center;
+    justify-content: center;
 }
